@@ -8,6 +8,7 @@ import cities from "../../ir.json"
 import http from '../../services/httpService';
 import { citySelectType } from '../../types';
 import styles from "./WeatherPage.module.css"
+import Loading from '../../components/loading/Loading';
 
 const options = cities.map((city) => {
     return { value: { lat: city.lat, lng: city.lng }, label: city.city }
@@ -15,6 +16,7 @@ const options = cities.map((city) => {
 
 const WeatherPage = () => {
     const [selectedOption, setSelectedOption] = useState<citySelectType | null>(null)
+    const [loading, setLoading] = useState(false)
     const [weather, setWeather] = useState<any>({
         city: null,
         temperature: null,
@@ -24,6 +26,7 @@ const WeatherPage = () => {
 
     const handleChange = (selectedOption: citySelectType | null) => {
         setSelectedOption(selectedOption)
+        setLoading(true)
         http.get(`?latitude=${selectedOption?.value.lat}&longitude=${selectedOption?.value.lng}&current_weather=true`).then(({ data }) => {
             setWeather({
                 city: selectedOption?.label,
@@ -31,6 +34,7 @@ const WeatherPage = () => {
                 isDay: data.current_weather.is_day,
                 windspeed: data.current_weather.windspeed
             })
+            setLoading(false)
         })
     };
 
@@ -43,6 +47,7 @@ const WeatherPage = () => {
                 gap: "1rem",
                 flexDirection: 'column',
                 minHeight: '100%',
+                position: "relative"
             }}
         >
             <Select
@@ -52,7 +57,7 @@ const WeatherPage = () => {
                 onChange={handleChange}
                 options={options}
             />
-            {weather.city && <Card sx={{ minWidth: 275 }}>
+            {loading ? <Loading /> : !loading && weather.city ? < Card sx={{ minWidth: 275 }}>
                 <CardContent>
                     <Typography variant="h5" color="text.primary" gutterBottom>
                         {weather?.city} ({weather?.isDay ? "Day" : "Night"})
@@ -64,9 +69,9 @@ const WeatherPage = () => {
                         windspeed: {weather?.windspeed}
                     </Typography>
                 </CardContent>
-            </Card>}
+            </Card> : null}
 
-        </Box>
+        </Box >
     );
 }
 

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
-import Timer from '../../components/Timer';
+import Timer from '../../components/timer/Timer';
 import { getStorage } from '../../utils/storage';
 
 const hours = new Date().getHours()
