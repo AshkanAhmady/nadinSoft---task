@@ -1,9 +1,12 @@
+import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <div>
-      ff
-    </div>
+    <Layout>
+      <div>
+        ff
+      </div>
+    </Layout>
   );
 }
 
