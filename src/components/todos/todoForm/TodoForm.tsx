@@ -2,6 +2,7 @@ import styles from "./TodoForm.module.css";
 import React, { useEffect, useRef, useState } from "react";
 import Button from '@mui/material/Button';
 import { TodoFormComponentPropsType } from "../../../types";
+import { toast } from "react-hot-toast";
 
 const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
     const [input, setInput] = useState(props.edit ? props.edit.text : "");
@@ -18,7 +19,7 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!input) {
-            alert("Please Fill The Input");
+            toast.error("Please Fill The Input");
             return;
         }
         props.submitTodo(input);
