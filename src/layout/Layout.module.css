@@ -1,0 +1,9 @@
+.navLink,
+.activeNavLink {
+  color: unset;
+  text-decoration: none;
+}
+
+.activeNavLink .listItem {
+  background: #eee !important;
+}

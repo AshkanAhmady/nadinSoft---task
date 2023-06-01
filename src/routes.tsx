@@ -1,8 +1,8 @@
-import DashboardPage from "./pages/DashboardPage"
+import DashboardPage from "./pages/dashboard/DashboardPage";
 import NotFound from "./pages/NotFoundPage";
-import ProfilePage from "./pages/ProfilePage";
-import TodosPage from "./pages/TodosPage";
-import WeatherPage from "./pages/WeatherPage";
+import ProfilePage from "./pages/profile/ProfilePage";
+import TodosPage from "./pages/todos/TodosPage";
+import WeatherPage from "./pages/weather/WeatherPage";
 
 const routes = [
   { path: "/weather", element: <WeatherPage /> },

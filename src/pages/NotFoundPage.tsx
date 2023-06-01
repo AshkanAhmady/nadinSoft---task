@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom"
 import { Box, Button, Typography } from '@mui/material';
-import { purple } from '@mui/material/colors';
-
-// const primary = purple[500];
 
 const NotFound = () => {
     return (

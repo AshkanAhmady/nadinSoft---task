@@ -11,12 +11,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import CloudIcon from '@mui/icons-material/Cloud';
 import { ChildsComponentsType } from "../types";
 import Header from "./Header";
-import { Link } from "react-router-dom";
-
-const linkStyles = {
-    color: "inherit",
-    textDecoration: "none"
-}
+import { NavLink } from "react-router-dom";
+import styles from "./Layout.module.css"
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
     return (
@@ -27,8 +23,9 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                         <nav aria-label="main mailbox folders">
                             <List>
-                                <Link style={linkStyles} to="/">
-                                    <ListItem disablePadding>
+                                <NavLink className={({ isActive }) =>
+                                    (isActive ? styles.activeNavLink : styles.navLink)} to="/">
+                                    <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
                                                 <DashboardIcon />
@@ -36,9 +33,10 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemText primary="Dashboard" />
                                         </ListItemButton>
                                     </ListItem>
-                                </Link>
-                                <Link style={linkStyles} to="/todos">
-                                    <ListItem disablePadding>
+                                </NavLink>
+                                <NavLink className={({ isActive }) =>
+                                    (isActive ? styles.activeNavLink : styles.navLink)} to="/todos">
+                                    <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
                                                 <ListIcon />
@@ -46,9 +44,10 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemText primary="Todos" />
                                         </ListItemButton>
                                     </ListItem>
-                                </Link>
-                                <Link style={linkStyles} to="weather">
-                                    <ListItem disablePadding>
+                                </NavLink>
+                                <NavLink className={({ isActive }) =>
+                                    (isActive ? styles.activeNavLink : styles.navLink)} to="weather">
+                                    <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
                                                 <CloudIcon />
@@ -56,9 +55,10 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemText primary="Weather" />
                                         </ListItemButton>
                                     </ListItem>
-                                </Link>
-                                <Link style={linkStyles} to="profile">
-                                    <ListItem disablePadding>
+                                </NavLink>
+                                <NavLink className={({ isActive }) =>
+                                    (isActive ? styles.activeNavLink : styles.navLink)} to="profile">
+                                    <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
                                                 <PersonIcon />
@@ -66,7 +66,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemText primary="Profile" />
                                         </ListItemButton>
                                     </ListItem>
-                                </Link>
+                                </NavLink>
                             </List>
                         </nav>
                     </Box>
