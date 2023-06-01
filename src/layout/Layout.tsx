@@ -71,9 +71,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item xs={10}>
-                    <main>{children}</main>
-                </Grid>
+                <Grid item xs={10}>{children}</Grid>
             </Grid>
         </Box>
     );
