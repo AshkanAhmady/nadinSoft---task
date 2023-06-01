@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
-import Timer from '../../components/Timer';
+import Timer from '../../components/timer/Timer';
 import { getStorage } from '../../utils/storage';
 
 const hours = new Date().getHours()
@@ -9,13 +9,13 @@ const DashboardPage = () => {
 
     const welocmeTextHandler = () => {
         let welcomeText = ''
-        if (4 < hours && hours < 12) {
+        if (4 < hours && hours <= 12) {
             welcomeText = "Good Morning"
-        } else if (12 < hours && hours < 15) {
+        } else if (13 < hours && hours <= 15) {
             welcomeText = "Good Afternoon"
-        } else if (15 < hours && hours < 20) {
+        } else if (16 < hours && hours <= 20) {
             welcomeText = "Good Evening"
-        } else if (20 < hours && hours < 4) {
+        } else {
             welcomeText = "Good Night"
         }
 
