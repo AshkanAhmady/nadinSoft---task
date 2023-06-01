@@ -1,11 +1,13 @@
 import Layout from "./layout/Layout";
+import { Route, Routes } from "react-router-dom";
+import routes from "./routes";
 
 function App() {
   return (
     <Layout>
-      <div>
-        ff
-      </div>
+      <Routes>
+        {routes.map((route, index) => <Route key={index} {...route} />)}
+      </Routes>
     </Layout>
   );
 }
