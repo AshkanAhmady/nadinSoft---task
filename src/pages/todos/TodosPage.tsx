@@ -47,11 +47,12 @@ const TodosPage = () => {
         <Box
             sx={{
                 display: 'flex',
-                justifyContent: 'center',
+                padding: "2rem",
                 alignItems: 'center',
                 gap: "1rem",
                 flexDirection: 'column',
                 minHeight: '100%',
+                position: "relative"
             }}
         >
             <TodoForm submitTodo={submitTodo} />
