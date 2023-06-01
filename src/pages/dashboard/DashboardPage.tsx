@@ -15,7 +15,7 @@ const DashboardPage = () => {
             welcomeText = "Good Afternoon"
         } else if (16 < hours && hours <= 20) {
             welcomeText = "Good Evening"
-        } else if (21 < hours && hours <= 3) {
+        } else {
             welcomeText = "Good Night"
         }
 
