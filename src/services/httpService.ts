@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const app = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: "https://api.open-meteo.com/v1/forecast",
 });
 
 const http = {

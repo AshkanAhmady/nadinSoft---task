@@ -9,13 +9,13 @@ const DashboardPage = () => {
 
     const welocmeTextHandler = () => {
         let welcomeText = ''
-        if (4 < hours && hours < 12) {
+        if (4 < hours && hours <= 12) {
             welcomeText = "Good Morning"
-        } else if (12 < hours && hours < 15) {
+        } else if (13 < hours && hours <= 15) {
             welcomeText = "Good Afternoon"
-        } else if (15 < hours && hours < 20) {
+        } else if (16 < hours && hours <= 20) {
             welcomeText = "Good Evening"
-        } else if (20 < hours && hours < 4) {
+        } else if (21 < hours && hours <= 3) {
             welcomeText = "Good Night"
         }
 

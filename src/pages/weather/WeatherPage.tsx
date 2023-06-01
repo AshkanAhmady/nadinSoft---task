@@ -1,7 +1,12 @@
 import { Box } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import { useState } from 'react';
 import Select from 'react-select';
+import Typography from '@mui/material/Typography';
 import cities from "../../ir.json"
+import http from '../../services/httpService';
+import { citySelectType } from '../../types';
 import styles from "./WeatherPage.module.css"
 
 const options = cities.map((city) => {
@@ -9,10 +14,24 @@ const options = cities.map((city) => {
 });
 
 const WeatherPage = () => {
-    const [selectedOption, setSelectedOption] = useState(null)
+    const [selectedOption, setSelectedOption] = useState<citySelectType | null>(null)
+    const [weather, setWeather] = useState<any>({
+        city: null,
+        temperature: null,
+        isDay: null,
+        windspeed: null
+    })
 
-    const handleChange = (selectedOption: any) => {
+    const handleChange = (selectedOption: citySelectType | null) => {
         setSelectedOption(selectedOption)
+        http.get(`?latitude=${selectedOption?.value.lat}&longitude=${selectedOption?.value.lng}&current_weather=true`).then(({ data }) => {
+            setWeather({
+                city: selectedOption?.label,
+                temperature: data.current_weather.temperature,
+                isDay: data.current_weather.is_day,
+                windspeed: data.current_weather.windspeed
+            })
+        })
     };
 
     return (
@@ -33,6 +52,20 @@ const WeatherPage = () => {
                 onChange={handleChange}
                 options={options}
             />
+            {weather.city && <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography variant="h5" color="text.primary" gutterBottom>
+                        {weather?.city} ({weather?.isDay ? "Day" : "Night"})
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        temperature: {weather?.temperature} °C
+                    </Typography>
+                    <Typography variant="body2">
+                        windspeed: {weather?.windspeed}
+                    </Typography>
+                </CardContent>
+            </Card>}
+
         </Box>
     );
 }
