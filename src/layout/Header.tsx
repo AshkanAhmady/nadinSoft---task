@@ -7,7 +7,7 @@ const Header = () => {
         <Box>
             <AppBar position="static">
                 <Typography variant="h6" component="div" sx={{ padding: ".5rem", display: "flex", flexGrow: 1, justifyContent: "center" }}>
-                    App bar
+                    App Bar
                 </Typography>
             </AppBar>
         </Box>
