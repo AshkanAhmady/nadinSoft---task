@@ -18,5 +18,10 @@
   "AddNewTodo": "یک کار جدید اضافه کنید",
   "FillTodoInput": "فیلد کار را پر کنید",
   "UpdateTodo": "ویرایش کار",
-  "AddTodo": "افزودن کار"
+  "AddTodo": "افزودن کار",
+  "EnterCity": "انتخاب شهر",
+  "Night": "شب",
+  "Day": "روز",
+  "Temperature": "درجه حرارت",
+  "Windspeed": "سرعت باد"
 }
