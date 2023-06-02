@@ -2,16 +2,19 @@ import Layout from "./layout/Layout";
 import { Route, Routes } from "react-router-dom";
 import routes from "./routes";
 import { Toaster } from 'react-hot-toast';
+import ToggleColorMode from "./context/ThemeContext";
 
 function App() {
   return (
-    <Layout>
-      <Toaster />
-      <Routes>
-        {routes.map((route, index) => <Route key={index} {...route} />)}
-      </Routes>
+    <ToggleColorMode >
+      <Layout>
+        <Toaster />
+        <Routes>
+          {routes.map((route, index) => <Route key={index} {...route} />)}
+        </Routes>
 
-    </Layout>
+      </Layout>
+    </ToggleColorMode>
   );
 }
 

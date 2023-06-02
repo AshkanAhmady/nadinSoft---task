@@ -1,9 +1,10 @@
-.navLink,
+/* .navLink,
 .activeNavLink {
-  color: unset;
+  color: black;
   text-decoration: none;
-}
+} */
 
 .activeNavLink .listItem {
-  background: #eee !important;
+  /* background: #585858 !important; */
+  color: #1976d2;
 }

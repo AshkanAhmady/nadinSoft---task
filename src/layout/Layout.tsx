@@ -15,11 +15,13 @@ import { NavLink } from "react-router-dom";
 import styles from "./Layout.module.css"
 import { useTranslation } from "react-i18next";
 import { getStorage } from "../utils/storage";
-import { createContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useTheme } from '@mui/material/styles';
 import { toast } from "react-hot-toast";
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
     const { t } = useTranslation()
+    const theme = useTheme();
 
     useEffect(() => {
         !getStorage("USER") && toast(t("SetName"))
@@ -30,11 +32,10 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
             <Header />
             <Grid sx={{ display: "flex", flexGrow: 1 }} container>
                 <Grid boxShadow="0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);" item xs={2}>
-                    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                        <nav aria-label="main mailbox folders">
+                    <Box sx={{ width: '100%', height: "100%", bgcolor: 'background.paper' }}>
+                        <nav aria-label="">
                             <List>
-                                <NavLink className={({ isActive }) =>
-                                    (isActive ? styles.activeNavLink : styles.navLink)} to="/">
+                                <NavLink style={{ textDecoration: "none", color: `${theme.palette.mode === "dark" ? "white" : "black"}` }} className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)} to="/">
                                     <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
@@ -44,7 +45,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink className={({ isActive }) =>
+                                <NavLink style={{ textDecoration: "none", color: `${theme.palette.mode === "dark" ? "white" : "black"}` }} className={({ isActive }) =>
                                     (isActive ? styles.activeNavLink : styles.navLink)} to="/todos">
                                     <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
@@ -55,7 +56,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink className={({ isActive }) =>
+                                <NavLink style={{ textDecoration: "none", color: `${theme.palette.mode === "dark" ? "white" : "black"}` }} className={({ isActive }) =>
                                     (isActive ? styles.activeNavLink : styles.navLink)} to="weather">
                                     <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
@@ -66,7 +67,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink className={({ isActive }) =>
+                                <NavLink style={{ textDecoration: "none", color: `${theme.palette.mode === "dark" ? "white" : "black"}` }} className={({ isActive }) =>
                                     (isActive ? styles.activeNavLink : styles.navLink)} to="profile">
                                     <ListItem className={styles.listItem} disablePadding>
                                         <ListItemButton>
@@ -81,9 +82,13 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item xs={10}>{children}</Grid>
+                <Grid item xs={10}>
+                    <Box sx={{ height: "100%", background: `${theme.palette.mode === "dark" ? "#383838" : "unset"}` }}>
+                        {children}
+                    </Box>
+                </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 };
 
