@@ -35,5 +35,6 @@
   "ChangesApplied": "Changes applied successfully",
   "YourNameRegistered": "Your Name Registered",
   "LangChanged": "locale changed",
-  "ThemeChanged": "Theme Changed"
+  "ThemeChanged": "Theme Changed",
+  "SetName": "Set your name in (Profile)"
 }

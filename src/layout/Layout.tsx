@@ -15,9 +15,15 @@ import { NavLink } from "react-router-dom";
 import styles from "./Layout.module.css"
 import { useTranslation } from "react-i18next";
 import { getStorage } from "../utils/storage";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
     const { t } = useTranslation()
+
+    useEffect(() => {
+        !getStorage("USER") && toast(t("SetName"))
+    }, [])
 
     return (
         <Box height="100vh" sx={{ display: "flex", flexDirection: "column", direction: `${window.localStorage.i18nextLng === "fa" ? "rtl" : "ltr"}` }}>
