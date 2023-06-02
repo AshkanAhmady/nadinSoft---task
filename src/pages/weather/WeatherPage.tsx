@@ -9,6 +9,7 @@ import http from '../../services/httpService';
 import { citySelectType } from '../../types';
 import Loading from '../../components/loading/Loading';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '@mui/material/styles';
 
 const options = cities.map((city) => {
     return { value: { lat: city.lat, lng: city.lng }, label: city.city }
@@ -16,6 +17,7 @@ const options = cities.map((city) => {
 
 const WeatherPage = () => {
     const { t } = useTranslation()
+    const theme = useTheme();
     const [selectedOption, setSelectedOption] = useState<citySelectType | null>(null)
     const [loading, setLoading] = useState(false)
     const [weather, setWeather] = useState<any>({
@@ -53,7 +55,7 @@ const WeatherPage = () => {
         >
             <Select
                 placeholder={`${t("EnterCity")}`}
-                className="selector"
+                className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedOption}
                 onChange={handleChange}
                 options={options}

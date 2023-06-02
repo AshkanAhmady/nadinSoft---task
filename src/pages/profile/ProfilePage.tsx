@@ -14,7 +14,7 @@ import { useTheme } from '@mui/material/styles';
 const ProfilePage = () => {
     const [name, setName] = useState("")
     const { setMode } = useContext(ColorModeContext);
-
+    const theme = useTheme();
     const [selectedThemeOption, setSelectedThemeOption] = useState<ProfileSelectType | null>(null)
     const [selectedLangOption, setSelectedLangOption] = useState<ProfileSelectType | null>(null)
     const { t } = useTranslation()
@@ -68,17 +68,17 @@ const ProfilePage = () => {
             }}
 
         >
-            <TextField value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic" label={t("Name")} variant="standard" />
+            <TextField className={`${window.localStorage.i18nextLng === "fa" ? "faTextField" : ""}`} value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic" label={t("Name")} variant="standard" />
             <Select
                 placeholder={`${t("Theme")}`}
-                className="selector"
+                className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedThemeOption}
                 onChange={ThemehandleChange}
                 options={themeOptions}
             />
             <Select
                 placeholder={`${t("Locale")}`}
-                className="selector"
+                className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedLangOption}
                 onChange={langHandleChange}
                 options={langOptions}

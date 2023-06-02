@@ -11,3 +11,16 @@ body {
 .selector {
   width: 300px;
 }
+
+.darkSelector > div {
+  background: #4d4d4d !important;
+}
+
+.darkSelector div {
+  color: white !important;
+}
+
+.faTextField label {
+  left: unset;
+  right: 0;
+}

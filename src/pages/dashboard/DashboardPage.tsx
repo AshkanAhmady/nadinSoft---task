@@ -27,8 +27,8 @@ const DashboardPage = () => {
         >
             <Typography variant="h3">
                 <Timer />
-                <span>{useWelcomeText()}, </span>
-                <span>{getStorage("USER") || t("User")}</span>
+                <span style={{ color: `${theme.palette.mode === "dark" ? "white" : "unset"}` }}>{useWelcomeText()}, </span>
+                <span style={{ color: `${theme.palette.mode === "dark" ? "white" : "unset"}` }}>{getStorage("USER") || t("User")}</span>
             </Typography>
         </Box>
     );

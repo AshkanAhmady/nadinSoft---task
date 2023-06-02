@@ -1,6 +1,6 @@
 .todo {
   display: flex;
-  box-shadow: 0 0 10px 1px #cffafe;
+  /* box-shadow: 0 0 10px 1px #cffafe; */
   width: 35rem;
   margin: 10px 0;
   padding: 5px;
@@ -12,7 +12,6 @@
 
 .todo > div {
   font-size: 25px;
-  color: #000;
 }
 
 .todo > div button {
