@@ -21,7 +21,7 @@ const NotFound = () => {
             </Typography>
             <Link to="/">
                 <Button variant="contained">
-                    Back Home
+                    Back Dashboard
                 </Button>
             </Link>
         </Box>

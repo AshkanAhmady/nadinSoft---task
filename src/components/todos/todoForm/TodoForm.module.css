@@ -22,6 +22,7 @@ form.todoForm button {
   border: 2px solid #047857;
   color: #047857;
   padding: 0 1rem;
+  margin: 0 1rem;
   text-transform: lowercase !important;
 }
 
