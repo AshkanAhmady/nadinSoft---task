@@ -13,15 +13,20 @@ import { ChildsComponentsType } from "../types";
 import Header from "./Header";
 import { NavLink } from "react-router-dom";
 import styles from "./Layout.module.css"
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { getStorage } from "../utils/storage";
+import { createContext, useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
-
     const { t } = useTranslation()
 
+    useEffect(() => {
+        !getStorage("USER") && toast(t("SetName"))
+    }, [])
+
     return (
-        <Box height="100vh" sx={{ display: "flex", flexDirection: "column" }}>
+        <Box height="100vh" sx={{ display: "flex", flexDirection: "column", direction: `${window.localStorage.i18nextLng === "fa" ? "rtl" : "ltr"}` }}>
             <Header />
             <Grid sx={{ display: "flex", flexGrow: 1 }} container>
                 <Grid boxShadow="0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);" item xs={2}>
@@ -35,7 +40,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <DashboardIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary={t("Dashboard")} />
+                                            <ListItemText sx={{ textAlign: `${window.localStorage.i18nextLng === "fa" ? "right" : "left"}` }} primary={t("Dashboard")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -46,7 +51,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <ListIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary={t("Todos")} />
+                                            <ListItemText sx={{ textAlign: `${window.localStorage.i18nextLng === "fa" ? "right" : "left"}` }} primary={t("Todos")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -57,7 +62,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <CloudIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary={t("Weather")} />
+                                            <ListItemText sx={{ textAlign: `${window.localStorage.i18nextLng === "fa" ? "right" : "left"}` }} primary={t("Weather")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -68,7 +73,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <PersonIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary={t("Profile")} />
+                                            <ListItemText sx={{ textAlign: `${window.localStorage.i18nextLng === "fa" ? "right" : "left"}` }} primary={t("Profile")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>

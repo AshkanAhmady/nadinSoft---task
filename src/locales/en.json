@@ -1,6 +1,6 @@
 {
   "GoodMorning": "Good Morning",
-  "GoodAfternoon": "Good Afternoonر",
+  "GoodAfternoon": "Good Afternoon",
   "GoodEvening": "Good Evening",
   "GoodNight": "Good Night",
   "User": "User",
@@ -23,5 +23,18 @@
   "Night": "Night",
   "Day": "Day",
   "Temperature": "Temperature",
-  "Windspeed": "Wind speed"
+  "Windspeed": "Wind speed",
+  "Name": "Name",
+  "Dark": "Dark",
+  "Light": "Light",
+  "Persian": "Persian",
+  "English": "English",
+  "Theme": "Theme",
+  "Locale": "Locale",
+  "Save": "Save",
+  "ChangesApplied": "Changes applied successfully",
+  "YourNameRegistered": "Your Name Registered",
+  "LangChanged": "locale changed",
+  "ThemeChanged": "Theme Changed",
+  "SetName": "Set your name in (Profile)"
 }

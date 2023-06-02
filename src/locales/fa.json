@@ -23,5 +23,18 @@
   "Night": "شب",
   "Day": "روز",
   "Temperature": "درجه حرارت",
-  "Windspeed": "سرعت باد"
+  "Windspeed": "سرعت باد",
+  "Name": "نام",
+  "Dark": "تیره",
+  "Light": "روشن",
+  "Persian": "فارسی",
+  "English": "انگلیسی",
+  "Theme": "زمینه",
+  "Locale": "زبان",
+  "Save": "ذخیره",
+  "ChangesApplied": "تغییرات با موفقیت اعمال شد",
+  "YourNameRegistered": "نام شما ثبت شد",
+  "LangChanged": "زبان تغییر یافت",
+  "ThemeChanged": "زمینه تغییر یافت",
+  "SetName": "در قسمت (پروفایل) نام خود را وارد کنید"
 }

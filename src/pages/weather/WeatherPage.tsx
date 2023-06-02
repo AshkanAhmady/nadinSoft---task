@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import cities from "../../ir.json"
 import http from '../../services/httpService';
 import { citySelectType } from '../../types';
-import styles from "./WeatherPage.module.css"
 import Loading from '../../components/loading/Loading';
 import { useTranslation } from 'react-i18next';
 
@@ -54,7 +53,7 @@ const WeatherPage = () => {
         >
             <Select
                 placeholder={`${t("EnterCity")}`}
-                className={styles.citySelecter}
+                className="selector"
                 value={selectedOption}
                 onChange={handleChange}
                 options={options}

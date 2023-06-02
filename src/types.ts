@@ -7,6 +7,11 @@ export interface citySelectType {
   value: { lat: string; lng: string };
 }
 
+export interface ProfileSelectType {
+  label: string;
+  value: string;
+}
+
 export interface TodoType {
   id: number;
   isComplete: boolean;
