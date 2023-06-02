@@ -6,7 +6,7 @@ const useWelcomeText = () => {
   let welcomeText = "";
   if (4 <= hours && hours <= 12) {
     welcomeText = t("GoodMorning");
-  } else if (13 < hours && hours <= 15) {
+  } else if (12 < hours && hours <= 16) {
     welcomeText = t("GoodAfternoon");
   } else if (16 < hours && hours <= 20) {
     welcomeText = t("GoodEvening");
