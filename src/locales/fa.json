@@ -1,0 +1,22 @@
+{
+  "GoodMorning": "صبح بخیر",
+  "GoodAfternoon": "ظهر بخیر",
+  "GoodEvening": "عصر بخیر",
+  "GoodNight": "شب بخیر",
+  "User": "جناب",
+  "AppBar": "نوار برنامه",
+  "Dashboard": "داشبورد",
+  "Todos": "کار ها",
+  "Weather": "آب و هاوا",
+  "Profile": "پروفایل",
+  "Uncomplete": "عدم انجام",
+  "Complete": "انجام",
+  "Delete": "حذف",
+  "Edit": "ویرایش",
+  "Update": "به روز رسانی",
+  "Add": "افزودن",
+  "AddNewTodo": "یک کار جدید اضافه کنید",
+  "FillTodoInput": "فیلد کار را پر کنید",
+  "UpdateTodo": "ویرایش کار",
+  "AddTodo": "افزودن کار"
+}

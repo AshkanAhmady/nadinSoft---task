@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import { changeLanguage } from 'i18next';
 
 const ProfilePage = () => {
     return (
@@ -11,7 +12,10 @@ const ProfilePage = () => {
                 flexDirection: 'column',
                 minHeight: '100%',
             }}
-        >profile page</Box>
+
+        >
+            <div onClick={() => changeLanguage("fa")}>sss</div>
+        </Box >
     );
 }
 

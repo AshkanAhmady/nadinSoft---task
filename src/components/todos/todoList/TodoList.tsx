@@ -5,8 +5,10 @@ import { TodoListComponentPropsType } from "../../../types";
 import Todo from "../todo/Todo";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useTranslation } from "react-i18next";
 
 const TodoList: React.FC<TodoListComponentPropsType> = ({ todos, onComplete, onDelete, updateTodo }) => {
+    const { t } = useTranslation()
     const [edit, setEdit] = useState({ id: 0, text: "", isComplete: false });
 
     const editTodo = (newValue: string) => {
@@ -15,7 +17,7 @@ const TodoList: React.FC<TodoListComponentPropsType> = ({ todos, onComplete, onD
     };
 
     const renderTodos = () => {
-        if (todos.length === 0) return <Typography className={styles.addMessage} variant="h4">Add Your Todo</Typography>
+        if (todos.length === 0) return <Typography className={styles.addMessage} variant="h4">{t("AddNewTodo")}</Typography>
         return (
             <ul>
                 {todos.map((todo) => {
