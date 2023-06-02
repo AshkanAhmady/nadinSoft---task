@@ -3,8 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Button from '@mui/material/Button';
 import { TodoFormComponentPropsType } from "../../../types";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
+    const { t } = useTranslation()
     const [input, setInput] = useState(props.edit ? props.edit.text : "");
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -19,7 +21,7 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!input) {
-            toast.error("Please Fill The Input");
+            toast.error(t("FillTodoInput"));
             return;
         }
         props.submitTodo(input);
@@ -35,10 +37,10 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
                 type="text"
                 onChange={changeHandler}
                 value={input}
-                placeholder={props.edit ? "Update Todo ..." : "Add Todo ..."}
+                placeholder={props.edit ? `${t("UpdateTodo")}` : `${t("AddTodo")}`}
                 ref={inputRef}
             />
-            <Button type="submit">{props.edit ? "Update" : "Add"}</Button>
+            <Button type="submit">{props.edit ? t("Update") : t("Add")}</Button>
         </form>
     );
 };

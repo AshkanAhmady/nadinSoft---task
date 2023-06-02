@@ -1,26 +1,12 @@
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import Timer from '../../components/timer/Timer';
+import useWelcomeText from '../../hooks/WelcomeText';
 import { getStorage } from '../../utils/storage';
 
-const hours = new Date().getHours()
-
 const DashboardPage = () => {
-
-    const welocmeTextHandler = () => {
-        let welcomeText = ''
-        if (4 < hours && hours <= 12) {
-            welcomeText = "Good Morning"
-        } else if (13 < hours && hours <= 15) {
-            welcomeText = "Good Afternoon"
-        } else if (16 < hours && hours <= 20) {
-            welcomeText = "Good Evening"
-        } else {
-            welcomeText = "Good Night"
-        }
-
-        return welcomeText
-    }
+    const { t } = useTranslation();
 
     return (
         <Box
@@ -35,8 +21,8 @@ const DashboardPage = () => {
         >
             <Typography variant="h3">
                 <Timer />
-                <span>{welocmeTextHandler()}, </span>
-                <span>{getStorage("USER") || "User"}</span>
+                <span>{useWelcomeText()}, </span>
+                <span>{getStorage("USER") || t("User")}</span>
             </Typography>
         </Box>
     );

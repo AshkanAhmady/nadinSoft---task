@@ -13,8 +13,13 @@ import { ChildsComponentsType } from "../types";
 import Header from "./Header";
 import { NavLink } from "react-router-dom";
 import styles from "./Layout.module.css"
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
+
+    const { t } = useTranslation()
+
     return (
         <Box height="100vh" sx={{ display: "flex", flexDirection: "column" }}>
             <Header />
@@ -30,7 +35,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <DashboardIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary="Dashboard" />
+                                            <ListItemText primary={t("Dashboard")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -41,7 +46,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <ListIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary="Todos" />
+                                            <ListItemText primary={t("Todos")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -52,7 +57,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <CloudIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary="Weather" />
+                                            <ListItemText primary={t("Weather")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>
@@ -63,7 +68,7 @@ const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
                                             <ListItemIcon>
                                                 <PersonIcon />
                                             </ListItemIcon>
-                                            <ListItemText primary="Profile" />
+                                            <ListItemText primary={t("Profile")} />
                                         </ListItemButton>
                                     </ListItem>
                                 </NavLink>

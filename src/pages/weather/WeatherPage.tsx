@@ -9,12 +9,14 @@ import http from '../../services/httpService';
 import { citySelectType } from '../../types';
 import styles from "./WeatherPage.module.css"
 import Loading from '../../components/loading/Loading';
+import { useTranslation } from 'react-i18next';
 
 const options = cities.map((city) => {
     return { value: { lat: city.lat, lng: city.lng }, label: city.city }
 });
 
 const WeatherPage = () => {
+    const { t } = useTranslation()
     const [selectedOption, setSelectedOption] = useState<citySelectType | null>(null)
     const [loading, setLoading] = useState(false)
     const [weather, setWeather] = useState<any>({
@@ -51,7 +53,7 @@ const WeatherPage = () => {
             }}
         >
             <Select
-                placeholder="Enter City"
+                placeholder={`${t("EnterCity")}`}
                 className={styles.citySelecter}
                 value={selectedOption}
                 onChange={handleChange}
@@ -60,13 +62,13 @@ const WeatherPage = () => {
             {loading ? <Loading /> : !loading && weather.city ? < Card sx={{ minWidth: 275 }}>
                 <CardContent>
                     <Typography variant="h5" color="text.primary" gutterBottom>
-                        {weather?.city} ({weather?.isDay ? "Day" : "Night"})
+                        {weather?.city} ({weather?.isDay ? t("Day") : t("Night")})
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        temperature: {weather?.temperature} °C
+                        {t("Temperature")}: {weather?.temperature} °C
                     </Typography>
                     <Typography variant="body2">
-                        windspeed: {weather?.windspeed}
+                        {t("Windspeed")}: {weather?.windspeed}
                     </Typography>
                 </CardContent>
             </Card> : null}
