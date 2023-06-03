@@ -4,11 +4,13 @@ import Button from '@mui/material/Button';
 import { TodoFormComponentPropsType } from "../../../types";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
+import { useTheme } from '@mui/material/styles';
 
 const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
     const { t } = useTranslation()
     const [input, setInput] = useState(props.edit ? props.edit.text : "");
     const inputRef = useRef<HTMLInputElement>(null);
+    const theme = useTheme();
 
     useEffect(() => {
         inputRef.current!.focus();
@@ -37,6 +39,7 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
                 type="text"
                 onChange={changeHandler}
                 value={input}
+                style={{ color: `${theme.palette.mode === "dark" ? "white" : "unset"}` }}
                 placeholder={props.edit ? `${t("UpdateTodo")}` : `${t("AddTodo")}`}
                 ref={inputRef}
             />

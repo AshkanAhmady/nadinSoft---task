@@ -1,9 +1,12 @@
-.navLink,
-.activeNavLink {
-  color: unset;
-  text-decoration: none;
+.activeNavLink .listItem {
+  color: #1976d2;
+}
+.sidebar {
+  position: relative;
 }
 
-.activeNavLink .listItem {
-  background: #eee !important;
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
 }

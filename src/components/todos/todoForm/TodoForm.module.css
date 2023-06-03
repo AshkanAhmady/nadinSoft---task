@@ -11,6 +11,7 @@ form.todoForm input {
   padding: 3px 7px;
   margin-right: 5px;
   outline: none;
+  background: transparent;
 }
 
 form.todoForm input:focus {
@@ -33,7 +34,6 @@ form.todoForm button:hover {
 
 form.editForm {
   display: flex;
-  box-shadow: 0 0 10px 1px #cffafe;
   width: 35rem;
   margin: 20px 0;
   padding: 10px 15px;

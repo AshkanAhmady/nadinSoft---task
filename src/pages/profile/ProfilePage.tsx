@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { changeLanguage } from 'i18next';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select from 'react-select';
 import { ProfileSelectType } from '../../types';
@@ -8,9 +8,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { setStorage } from '../../utils/storage';
 import { toast } from 'react-hot-toast';
+import { ColorModeContext } from '../../context/ThemeContext';
+import { useTheme } from '@mui/material/styles';
 
 const ProfilePage = () => {
     const [name, setName] = useState("")
+    const { setMode } = useContext(ColorModeContext);
+    const theme = useTheme();
     const [selectedThemeOption, setSelectedThemeOption] = useState<ProfileSelectType | null>(null)
     const [selectedLangOption, setSelectedLangOption] = useState<ProfileSelectType | null>(null)
     const { t } = useTranslation()
@@ -43,7 +47,8 @@ const ProfilePage = () => {
             setSelectedLangOption(null)
         }
         if (selectedThemeOption?.value) {
-            changeLanguage(selectedLangOption?.value)
+            setMode(selectedThemeOption?.value)
+            localStorage.setItem("theme", selectedThemeOption?.value)
             toast.success(t("ThemeChanged"))
             setSelectedThemeOption(null)
         }
@@ -59,21 +64,21 @@ const ProfilePage = () => {
                 gap: "1rem",
                 flexDirection: 'column',
                 minHeight: '100%',
-                position: "relative"
+                position: "relative",
             }}
 
         >
-            <TextField value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic" label={t("Name")} variant="standard" />
+            <TextField className={`${window.localStorage.i18nextLng === "fa" ? "faTextField" : ""}`} value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic" label={t("Name")} variant="standard" />
             <Select
                 placeholder={`${t("Theme")}`}
-                className="selector"
+                className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedThemeOption}
                 onChange={ThemehandleChange}
                 options={themeOptions}
             />
             <Select
                 placeholder={`${t("Locale")}`}
-                className="selector"
+                className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedLangOption}
                 onChange={langHandleChange}
                 options={langOptions}

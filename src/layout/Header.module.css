@@ -1,0 +1,18 @@
+.dehazeIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+  display: none !important;
+}
+
+.faDehazeIcon {
+  left: unset;
+  right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .dehazeIcon {
+    display: block !important;
+  }
+}
