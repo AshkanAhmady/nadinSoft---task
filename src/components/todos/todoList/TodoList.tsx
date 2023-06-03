@@ -36,9 +36,9 @@ const TodoList: React.FC<TodoListComponentPropsType> = ({ todos, onComplete, onD
     };
 
     return (
-        <Box className={styles.todoList}>
+        <div className={styles.todoList}>
             {edit.id ? <TodoForm edit={edit} submitTodo={editTodo} /> : renderTodos()}
-        </Box>
+        </div>
     );
 };
 

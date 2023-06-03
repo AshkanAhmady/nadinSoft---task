@@ -1,11 +1,19 @@
 import { Box } from '@mui/material';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoForm from '../../components/todos/todoForm/TodoForm';
 import TodoList from '../../components/todos/todoList/TodoList';
 import { TodoType } from '../../types';
+import { getStorage, setStorage } from '../../utils/storage';
 
 const TodosPage = () => {
     const [todos, setTodos] = useState<any[]>([]);
+
+    useEffect(() => {
+        if (window.localStorage.TODOS) {
+            const todos = getStorage("TODOS")
+            setTodos(todos)
+        }
+    }, [])
 
     const submitTodo = (input: string) => {
         const newTodo = {
@@ -14,6 +22,7 @@ const TodosPage = () => {
             isComplete: false,
         };
         setTodos([...todos, newTodo]);
+        setStorage("TODOS", [...todos, newTodo])
     };
 
     const completeTodo = (id: number) => {
@@ -25,11 +34,13 @@ const TodosPage = () => {
         cloneTodos[index] = todo;
 
         setTodos(cloneTodos);
+        setStorage("TODOS", cloneTodos)
     };
 
     const deleteTodo = (id: number) => {
         const updatedTodos = todos.filter((todo) => todo.id !== id);
         setTodos(updatedTodos);
+        setStorage("TODOS", updatedTodos)
     };
 
     const updateTodo = (newValue: string, id: number) => {
@@ -41,6 +52,7 @@ const TodosPage = () => {
         cloneTodos[index] = todo;
 
         setTodos(cloneTodos);
+        setStorage("TODOS", cloneTodos)
     };
 
     return (

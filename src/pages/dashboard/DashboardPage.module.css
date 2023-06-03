@@ -1,11 +1,11 @@
 @media screen and (max-width: 900px) {
   .typography {
-    font-size: 30px;
+    font-size: 30px !important;
   }
 }
 
 @media screen and (max-width: 600px) {
   .typography {
-    font-size: 24px;
+    font-size: 24px !important;
   }
 }

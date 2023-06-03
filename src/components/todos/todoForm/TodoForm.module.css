@@ -34,7 +34,7 @@ form.todoForm button:hover {
 
 form.editForm {
   display: flex;
-  width: 35rem;
+  /* width: 35rem; */
   margin: 20px 0;
   padding: 10px 15px;
   justify-content: space-between;
