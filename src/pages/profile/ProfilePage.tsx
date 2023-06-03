@@ -68,8 +68,9 @@ const ProfilePage = () => {
             }}
 
         >
-            <TextField className={`${window.localStorage.i18nextLng === "fa" ? "faTextField" : ""}`} value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic" label={t("Name")} variant="standard" />
+            <TextField className={`${window.localStorage.i18nextLng === "fa" ? "faTextField" : ""}`} value={name} sx={{ width: "300px" }} type="text" onChange={(e) => setName(e.target.value)} id="standard-basic set-name-cy" label={t("Name")} variant="standard" />
             <Select
+                id="theme-selector-cy"
                 placeholder={`${t("Theme")}`}
                 className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedThemeOption}
@@ -77,6 +78,7 @@ const ProfilePage = () => {
                 options={themeOptions}
             />
             <Select
+                id="lang-selector-cy"
                 placeholder={`${t("Locale")}`}
                 className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedLangOption}
