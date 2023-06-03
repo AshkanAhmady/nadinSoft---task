@@ -54,6 +54,7 @@ const WeatherPage = () => {
             }}
         >
             <Select
+                id="citySelector-cy"
                 placeholder={`${t("EnterCity")}`}
                 className={`selector ${theme.palette.mode === "dark" ? "darkSelector" : ""}`}
                 value={selectedOption}
@@ -61,7 +62,7 @@ const WeatherPage = () => {
                 options={options}
             />
             {loading ? <Loading /> : !loading && weather.city ? < Card sx={{ minWidth: 275 }}>
-                <CardContent>
+                <CardContent id="cityDetail-cy">
                     <Typography variant="h5" color="text.primary" gutterBottom>
                         {weather?.city} ({weather?.isDay ? t("Day") : t("Night")})
                     </Typography>
