@@ -16,9 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src",
-    "cypress/e2e/WeatherPage.cy.tsx",
-    "cypress/WeatherPage.cy.tsx"
-  ]
+  "include": ["src", "cypress/e2e/*.cy.tsx"]
 }
