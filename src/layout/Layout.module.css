@@ -1,10 +1,12 @@
-/* .navLink,
-.activeNavLink {
-  color: black;
-  text-decoration: none;
-} */
-
 .activeNavLink .listItem {
-  /* background: #585858 !important; */
   color: #1976d2;
+}
+.sidebar {
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
 }

@@ -20,6 +20,10 @@ body {
   color: white !important;
 }
 
+.darkSelector option::disable {
+  background: red;
+}
+
 .faTextField label {
   left: unset;
   right: 0;
