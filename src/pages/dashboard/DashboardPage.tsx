@@ -5,6 +5,7 @@ import Timer from '../../components/timer/Timer';
 import useWelcomeText from '../../hooks/WelcomeText';
 import { getStorage } from '../../utils/storage';
 import { useTheme } from '@mui/material/styles';
+import styles from "./DashboardPage.module.css"
 
 const DashboardPage = () => {
     const { t } = useTranslation();
@@ -25,7 +26,7 @@ const DashboardPage = () => {
                 // background: `${theme.palette.mode === "dark" ? "#3C3C3C" : "nuset"}`
             }}
         >
-            <Typography variant="h3">
+            <Typography className={styles.typography} variant="h3">
                 <Timer />
                 <span style={{ color: `${theme.palette.mode === "dark" ? "white" : "unset"}` }}>{useWelcomeText()}, </span>
                 <span style={{ color: `${theme.palette.mode === "dark" ? "white" : "unset"}` }}>{getStorage("USER") || t("User")}</span>
