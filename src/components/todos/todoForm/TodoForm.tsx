@@ -36,6 +36,7 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
             onSubmit={submitHandler}
         >
             <input
+                id={`${props.edit ? "update-todo-text-cy" : "insert-todo-text-cy"}`}
                 type="text"
                 onChange={changeHandler}
                 value={input}
@@ -43,7 +44,7 @@ const TodoForm: React.FC<TodoFormComponentPropsType> = (props) => {
                 placeholder={props.edit ? `${t("UpdateTodo")}` : `${t("AddTodo")}`}
                 ref={inputRef}
             />
-            <Button type="submit">{props.edit ? t("Update") : t("Add")}</Button>
+            <Button id={`${props.edit ? "update-todo-cy" : "submit-todo-cy"}`} type="submit">{props.edit ? t("Update") : t("Add")}</Button>
         </form>
     );
 };
